@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .root{
+            padding: 0;
+            margin: 0;
+            display: flex;
+            width: 450px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn{
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            background: none;
+            border: solid 1px black;
+            cursor: pointer;
+        }
+        .btn:hover{
+            background: #ccc;
+        }
+        .clicked{
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="root">
+
+    </div>
+
+    
+    <script>
+        const root = document.querySelector('.root')
+
+        var change = function (e){
+
+            this.classList.add('clicked')
+            this.removeEventListener('click',change)
+        }
+
+        for(let i=1; i<=25;i++)
+        {
+            var btn = document.createElement('button')
+            btn.id = 'btn'+i
+            btn.className = 'btn'
+            btn.innerText=i
+            btn.addEventListener('click',change)
+            root.appendChild(btn)
+        }
+
+        var btn1 = document.querySelector('#btn1')
+        console.log(btn1.getClientX());
+
+        
+
+    </script>
+    
+</body>
+</html>
